@@ -75,8 +75,12 @@ class ValidationService {
     func usernameValid(_ username: String) -> Bool {
         let filePath = NSHomeDirectory() + "/Documents/users.plist"
         let userDic = NSDictionary(contentsOfFile: filePath)
-        let usernameArray = userDic!.allKeys as NSArray
-        if usernameArray.contains(username) {
+        let usernameArray = userDic?.allKeys
+        guard usernameArray != nil else {
+            return false
+        }
+        
+        if (usernameArray! as NSArray).contains(username ) {
             return true
         } else {
             return false

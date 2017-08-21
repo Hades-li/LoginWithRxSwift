@@ -30,38 +30,38 @@ class RegisterViewController: UIViewController {
         let viewModel = RegisterViewModel()
         
         usernameTextField.rx.text.orEmpty
-            .bindTo(viewModel.username)
+            .bind(to: viewModel.username)
             .addDisposableTo(disposeBag)
         
         passwordTextField.rx.text.orEmpty
-            .bindTo(viewModel.password)
+            .bind(to: viewModel.password)
             .addDisposableTo(disposeBag)
         
         repeatPasswordTextField.rx.text.orEmpty
-            .bindTo(viewModel.repeatPassword)
+            .bind(to: viewModel.repeatPassword)
             .addDisposableTo(disposeBag)
         
         registerButton.rx.tap
-            .bindTo(viewModel.registerTaps)
+            .bind(to: viewModel.registerTaps)
             .addDisposableTo(disposeBag)
         
         
         viewModel.usernameUsable
-            .bindTo(usernameLabel.rx.validationResult)
+            .bind(to: usernameLabel.rx.validationResult)
             .addDisposableTo(disposeBag)
         viewModel.usernameUsable
-            .bindTo(passwordTextField.rx.inputEnabled)
+            .bind(to: passwordTextField.rx.inputEnabled)
             .addDisposableTo(disposeBag)
         
         viewModel.passwordUsable
-            .bindTo(passwordLabel.rx.validationResult)
+            .bind(to: passwordLabel.rx.validationResult)
             .addDisposableTo(disposeBag)
         viewModel.passwordUsable
-            .bindTo(repeatPasswordTextField.rx.inputEnabled)
+            .bind(to: repeatPasswordTextField.rx.inputEnabled)
             .addDisposableTo(disposeBag)
         
         viewModel.repeatPasswordUsable
-            .bindTo(repeatPasswordLabel.rx.validationResult)
+            .bind(to: repeatPasswordLabel.rx.validationResult)
             .addDisposableTo(disposeBag)
         
         viewModel.registerButtonEnabled
@@ -85,7 +85,7 @@ class RegisterViewController: UIViewController {
             .addDisposableTo(disposeBag)
         
         viewModel.registerResult
-            .bindTo(loginButton.rx.tapEnabled)
+            .bind(to: loginButton.rx.tapEnabled)
             .addDisposableTo(disposeBag)
     }
     
